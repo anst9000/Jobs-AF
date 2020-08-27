@@ -1,5 +1,18 @@
-import 'dotenv/config'
+import 'dotenv/config';
+import cors from 'cors'
+import express from 'express';
 
-console.log('Hello Jobs AF.');
+const app = express();
+app.use(cors());
+const port = process.env.PORT;
 
-console.log(process.env.API_KEY);
+
+// Routes
+app.get('/', (req, res) => {
+	res.send('Hello World!');
+})
+
+
+app.listen(port, () => {
+	console.log(`Server listening on port ${port}`);
+})
